@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>book-examples</display-name>
+  <context-param>
+  	<description>Vaadin production mode</description>
+  	<param-name>productionMode</param-name>
+  	<param-value>false</param-value>
+  </context-param>
+  
+  <!-- ==================================================================== -->
+  <!-- Book Examples                                                        -->
+  <!-- ==================================================================== -->
+  <servlet>
+  	<servlet-name>Book of Vaadin Examples</servlet-name>
+  	<servlet-class>com.vaadin.book.CustomApplicationServlet</servlet-class>
+
+  	<init-param>
+  		<description>Vaadin application class to start</description>
+  		<param-name>application</param-name>
+  		<param-value>com.vaadin.book.BookExamplesApplication</param-value>
+  	</init-param>
+
+    <init-param>
+        <description>Application widgetset</description>
+        <param-name>widgetset</param-name>
+        <param-value>com.vaadin.book.widgetset.BookExamplesWidgetSet</param-value>
+    </init-param>
+  </servlet>
+
+  <!-- Keep the session alive very long -->
+  <session-config>
+      <session-timeout>10000</session-timeout>
+  </session-config>
+
+  <servlet-mapping>
+  	<servlet-name>Book of Vaadin Examples</servlet-name>
+  	<url-pattern>/book/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- This has to be done because the apps are under a sub-context. -->
+  <servlet-mapping>
+    <servlet-name>Book of Vaadin Examples</servlet-name>
+    <url-pattern>/VAADIN/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- Required for H2 database used in JPAContainer examples. -->
+  <listener>
+    <listener-class>org.h2.server.web.DbStarter</listener-class>
+  </listener>
+
+  <!-- ==================================================================== -->
+  <!-- URI Fragment Utility Example Application                             -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>URI Fragment Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.UriFragmentApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>URI Fragment Example</servlet-name>
+    <url-pattern>/uriexample/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- Indexing Example Application                                         -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>Indexing Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.IndexingExampleApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Indexing Example</servlet-name>
+    <url-pattern>/indexing/*</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ==================================================================== -->
+  <!-- Cookie Example Application                                           -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>Cookie Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.CookieExampleApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cookie Example</servlet-name>
+    <url-pattern>/cookies/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- This has to be done because the apps are under a sub-context. -->
+  <!--  <servlet-mapping>
+    <servlet-name>Cookie Example</servlet-name>
+    <url-pattern>/VAADIN/*</url-pattern>
+  </servlet-mapping>-->
+
+  <!-- ==================================================================== -->
+  <!-- HTTP Servlet Request Example Application                             -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>HttpServletRequestListener Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.HttpServletRequestApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HttpServletRequestListener Example</servlet-name>
+    <url-pattern>/servletrequestexample/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- This has to be done because the apps are under a sub-context. -->
+  <!--  <servlet-mapping>
+    <servlet-name>HttpServletRequestListener Example</servlet-name>
+    <url-pattern>/VAADIN/*</url-pattern>
+  </servlet-mapping> -->
+
+  <!-- ==================================================================== -->
+  <!-- Dynamic Window Example Application                                   -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>Dynamic Window Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.DynamicWindowApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dynamic Window Example</servlet-name>
+    <url-pattern>/dynamicwindow/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- Static Login Example Application                                     -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>Static Login Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.StaticLoginApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Static Login Example</servlet-name>
+    <url-pattern>/staticlogin/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- HelloWorld Example Application                                       -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>HelloWorld Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.HelloWorld</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorld Example</servlet-name>
+    <url-pattern>/helloworld/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- TestBench Application                                                -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>ApplicationToBeTested</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.ApplicationToBeTested</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApplicationToBeTested</servlet-name>
+    <url-pattern>/tobetested/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- ThreadLocal Example Application                                      -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>ThreadLocal Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.applications.ThreadLocalApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ThreadLocal Example</servlet-name>
+    <url-pattern>/threadlocal/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- Color Picker Example                                                 -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>Color Picker</servlet-name>
+    <servlet-class>
+    com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.demo.colorpicker.ColorPickerApplication</param-value>
+    </init-param>
+    <init-param>
+        <description>Application widgetset</description>
+        <param-name>widgetset</param-name>
+        <param-value>com.vaadin.demo.colorpicker.widgetset.ColorPickerWidgetSet</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Color Picker</servlet-name>
+    <url-pattern>/colorpicker/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- Portlet Example Application                                          -->
+  <!-- ==================================================================== -->
+  <servlet>
+    <servlet-name>Portlet Example</servlet-name>
+    <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+    <init-param>
+        <description>Vaadin application class to start</description>
+        <param-name>application</param-name>
+        <param-value>com.vaadin.book.examples.portlet.MyPortletApplication</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Portlet Example</servlet-name>
+    <url-pattern>/portlet/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- ==================================================================== -->
+  <!-- Correct Character Encoding for LoginForms                            -->
+  <!-- ==================================================================== -->
+  <!-- 
+  <filter>
+    <filter-name>SetCharacterEncodingFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>SetCharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> -->
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
